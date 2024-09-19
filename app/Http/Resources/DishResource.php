@@ -18,8 +18,8 @@ class DishResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
-            // 'category_id' => $this->category_id,
-            // 'category' => new CategoryResource($this->whenLoaded('category')), // Include category relationship if loaded
+            'category_id' => $this->category_id,
+            'category' => new CategoryResource($this->whenLoaded('category')), // Include single category relationship if loaded
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
         ];

@@ -20,7 +20,7 @@ class InventoryResource extends JsonResource
             'quantity' => $this->quantity,
             'expiry' => $this->expiry,
             'user_id' => $this->user_id,
-            'user' => UserResource::collection($this->whenLoaded('user')), // Include user relationship if loaded
+            'user' => new UserResource($this->whenLoaded('user')), // Include user relationship if loaded
             'suppliers' => SupplierResource::collection($this->whenLoaded('suppliers')), // Include suppliers if loaded
 
             'created_at' => $this->created_at->toDateTimeString(),

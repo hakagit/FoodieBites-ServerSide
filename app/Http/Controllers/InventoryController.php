@@ -13,8 +13,11 @@ class InventoryController extends Controller
     // Display a listing of the inventories
     public function index()
     {
-        $inventories = Inventory::with('user')->get(); // Eager load the user relationship
-        return InventoryResource::collection($inventories); // Use InventoryResource for the collection
+        \Log::info('Fetching all inventory items');
+
+        // Eager load both user and suppliers relationships
+        $inventories = Inventory::with(['user', 'suppliers'])->get();
+        return InventoryResource::collection($inventories); // Return the resource collection
     }
 
     // Store a newly created inventory in storage
