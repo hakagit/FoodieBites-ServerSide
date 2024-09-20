@@ -14,6 +14,7 @@ use App\Http\Controllers\InventorySupplierController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 use App\Models\Inventory;
@@ -59,6 +60,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/destroy/{id}', [CategoryController::class, 'destroy']);
     });
 });
+
+
 
 Route::prefix('inventory')->middleware('auth:sanctum', 'admin')->group(function () {
     Route::get('/get', [InventoryController::class, 'index']);

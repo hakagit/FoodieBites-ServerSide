@@ -37,6 +37,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Address whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Address withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Address withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Address extends \Eloquent {}
 }
@@ -69,6 +70,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Category withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Category extends \Eloquent {}
 }
@@ -99,6 +101,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Dish whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Dish withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Dish withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Dish extends \Eloquent {}
 }
@@ -130,6 +133,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Driver whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Driver withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Driver withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Driver extends \Eloquent {}
 }
@@ -164,6 +168,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Inventory whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Inventory withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Inventory withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Inventory extends \Eloquent {}
 }
@@ -185,6 +190,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|InventorySupplier whereInventoryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|InventorySupplier whereSupplierId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|InventorySupplier whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class InventorySupplier extends \Eloquent {}
 }
@@ -220,6 +226,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Order whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Order withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Order withoutTrashed()
+ * @mixin \Eloquent
+ * @property string $total_amount
+ * @method static \Illuminate\Database\Eloquent\Builder|Order whereTotalAmount($value)
  */
 	class Order extends \Eloquent {}
 }
@@ -251,6 +260,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|OrderItem wherePrice($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OrderItem whereQuantity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|OrderItem whereUpdatedAt($value)
+ * @mixin \Eloquent
+ * @property string $total
+ * @method static \Illuminate\Database\Eloquent\Builder|OrderItem whereTotal($value)
  */
 	class OrderItem extends \Eloquent {}
 }
@@ -283,8 +295,30 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Payment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Payment withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Payment withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Payment extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property string $title
+ * @property string $url
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Photo whereUrl($value)
+ */
+	class Photo extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -310,6 +344,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Supplier whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Supplier withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Supplier withoutTrashed()
+ * @mixin \Eloquent
  */
 	class Supplier extends \Eloquent {}
 }
@@ -347,6 +382,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutTrashed()
+ * @mixin \Eloquent
  */
 	class User extends \Eloquent {}
 }
