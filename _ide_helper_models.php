@@ -71,6 +71,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Category withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Category withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $image
+ * @method static \Illuminate\Database\Eloquent\Builder|Category whereImage($value)
  */
 	class Category extends \Eloquent {}
 }
@@ -102,6 +104,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Dish withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|Dish withoutTrashed()
  * @mixin \Eloquent
+ * @property string|null $image
+ * @method static \Illuminate\Database\Eloquent\Builder|Dish whereImage($value)
  */
 	class Dish extends \Eloquent {}
 }
@@ -298,27 +302,6 @@ namespace App\Models{
  * @mixin \Eloquent
  */
 	class Payment extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * 
- *
- * @property int $id
- * @property string $title
- * @property string $url
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @method static \Illuminate\Database\Eloquent\Builder|Photo newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Photo newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Photo query()
- * @method static \Illuminate\Database\Eloquent\Builder|Photo whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Photo whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Photo whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Photo whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Photo whereUrl($value)
- */
-	class Photo extends \Eloquent {}
 }
 
 namespace App\Models{

@@ -19,6 +19,7 @@ class CategoryResource extends JsonResource
             'name' => $this->name,
             'quantity' => $this->quantity,
             'user_id' => $this->user_id,
+            'image' => $this->image,
             'dishes' => DishResource::collection($this->whenLoaded('dishes')), // Include dish relationship if loaded
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),

@@ -46,6 +46,8 @@ class Category extends Model
         'name',
         'quantity',
         'user_id', // Foreign key to the Admin model
+        'image',
+
     ];
 
     // Define the relationship with Admin

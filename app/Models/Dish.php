@@ -43,6 +43,8 @@ class Dish extends Model
         'name',
         'price',
         'category_id', // Foreign key to the Category model
+        'image', // Add image to fillable fields
+
     ];
 
     // Define the relationship with Category

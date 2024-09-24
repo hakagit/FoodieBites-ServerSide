@@ -15,6 +15,12 @@ class Cors
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        // Allow all domains to access your API (for development use only)
+        // Be more restrictive in production!
+        return $next($request)
+            ->header('Access-Control-Allow-Origin', '*') // Allow all domain, restrict in production
+            ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+            ->header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization')
+            ->header('Access-Control-Allow-Credentials', 'true');
     }
 }

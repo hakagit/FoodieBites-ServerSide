@@ -29,11 +29,20 @@ class DishController extends Controller
     // Store a newly created dish in storage
     public function store(DishRequest $request)
     {
+        // Create a new dish instance
         $dish = Dish::create([
             'name' => $request->name,
             'price' => $request->price,
             'category_id' => $request->category_id,
         ]);
+
+        // Handle the image upload if provided
+        if ($request->hasFile('image')) {
+            $originalName = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images/dishes', $originalName, 'public');
+            $dish->image = $path;
+            $dish->save();
+        }
 
         return new DishResource($dish); // Return a single DishResource
     }
@@ -50,7 +59,15 @@ class DishController extends Controller
     {
         $dish = Dish::findOrFail($id);
 
-        $dish->update($request->only(['name', 'price', 'category_id'])); // Use mass assignment
+        // Update dish details
+        $dish->update($request->only(['name', 'price', 'category_id']));
+
+        // Handle the image upload if provided
+        if ($request->hasFile('image')) {
+            $originalName = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images/dishes', $originalName, 'public');
+            $dish->image = $path;
+        }
 
         return new DishResource($dish); // Return a single DishResource
     }

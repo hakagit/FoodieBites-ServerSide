@@ -21,11 +21,20 @@ class CategoryController extends Controller
     // Store a newly created category in storage
     public function store(CategoryRequest $request)
     {
+        // Create a new category from the request
         $category = Category::create([
             'name' => $request->name,
             'quantity' => $request->quantity,
             'user_id' => $request->user_id,
         ]);
+
+        // Handle the image upload
+        if ($request->hasFile('image')) {
+            $originalName = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images/categories', $originalName, 'public');
+            $category->image = $path;
+            $category->save();
+        }
 
         return new CategoryResource($category); // Return a single CategoryResource
     }
@@ -42,7 +51,16 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        $category->update($request->only(['name', 'quantity', 'user_id'])); // Use mass assignment
+        // Update category properties
+        $category->update($request->only(['name', 'quantity', 'user_id']));
+
+        // Handle updating the image if provided
+        if ($request->hasFile('image')) {
+            $originalName = $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('images/categories', $originalName, 'public');
+            $category->image = $path;
+            $category->save();
+        }
 
         return new CategoryResource($category); // Return a single CategoryResource
     }
