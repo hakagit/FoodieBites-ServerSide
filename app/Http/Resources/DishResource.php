@@ -19,7 +19,7 @@ class DishResource extends JsonResource
             'name' => $this->name,
             'price' => $this->price,
             'category_id' => $this->category_id,
-            'image' => asset('storage/' . $this->image), // Ensure the image is correctly formatted           
+            'image' => $this->image,
             'category' => new CategoryResource($this->whenLoaded('category')),
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),

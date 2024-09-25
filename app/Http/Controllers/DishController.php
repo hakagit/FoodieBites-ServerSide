@@ -67,6 +67,7 @@ class DishController extends Controller
             $originalName = $request->file('image')->getClientOriginalName();
             $path = $request->file('image')->storeAs('images/dishes', $originalName, 'public');
             $dish->image = $path;
+            $dish->save();
         }
 
         return new DishResource($dish); // Return a single DishResource
